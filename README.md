@@ -77,5 +77,25 @@ app.get('/error', function(req, res, next) {
 });
 ```
 
+I have to recommend using [okay](https://github.com/brianc/node-okay) to gracefully fallback in the absence of domains.  Plus..it's terse. Go, code golf!
+```js
+var ok = require('okay');
+app.use(require('domain-middleware'));
+app.use(app.router);
+app.use(function errorHandler(err, req, res, next) {
+  console.log('error on request %d %s %s: %j', process.domain.id, req.method, req.url, err);
+  res.send(500, "Something bad happened. :(");
+});
+app.get('/error', function(req, res, next) {
+  db.query('SELECT happiness()', ok(next, function(rows) {
+    fs.readFile('asldkfjasdf', ok(next, function(contents) {
+      process.nextTick(ok(next, function() {
+        throw new Error("The individual request will be passed to the express error handler, and your application will keep running.");
+      }));
+    }));
+  }));
+});
+```
+
 ## license
 MIT
