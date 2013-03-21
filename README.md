@@ -1,5 +1,7 @@
 # domain-middleware
 
+[![Build Status](https://travis-ci.org/brianc/node-domain-middleware.png?branch=master)](https://travis-ci.org/brianc/node-domain-middleware)
+
 Hi! Are you sick of using `process.uncaughtException` in your express apps to keep them running?
 
 OR...Do you just let your process crash on any unhandled exception and restart it?
