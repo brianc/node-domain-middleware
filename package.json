@@ -1,0 +1,28 @@
+{
+  "name": "domain-middleware",
+  "version": "0.0.0",
+  "description": "wrap express request/response with node domains",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brianc/node-domain-middleware"
+  },
+  "keywords": [
+    "domain",
+    "express",
+    "middleware"
+  ],
+  "author": "Brian M. Carlson",
+  "license": "MIT",
+  "devDependencies": {
+    "omf": "~0.3.0",
+    "okay": "~0.2.0",
+    "mocha": "~1.8.2"
+  }
+}
