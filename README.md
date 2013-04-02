@@ -1,4 +1,4 @@
-# domain-middleware
+# express-domain-middleware
 
 [![Build Status](https://travis-ci.org/brianc/node-domain-middleware.png?branch=master)](https://travis-ci.org/brianc/node-domain-middleware)
 
@@ -26,7 +26,7 @@ express.use(require('domain-middleware'));
 
 ### domain-middleware api
 
-#### var domainMiddlewaire = require('domain-middleware');
+#### var domainMiddlewaire = require('express-domain-middleware');
 
 #### domainMiddleware = function(req, res, next) 
 
