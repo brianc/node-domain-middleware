@@ -21,16 +21,16 @@ Second, realize once you enable domains `process.domain` will give you the activ
 Third, use this middleware to bind each request/response pair to its own domain.
 
 ```js
-express.use(require('domain-middleware'));
+express.use(require('express-domain-middleware'));
 ```
 
 ### domain-middleware api
 
-#### var domainMiddlewaire = require('express-domain-middleware');
+#### var domainMiddleware = require('express-domain-middleware');
 
 #### domainMiddleware = function(req, res, next) 
 
-Exports a function matching the signature of express middleware.  Binds incomming request & response from express to a new domain.  Assigns the domain a unique id by calling `domainMiddleware.id(req)`.
+Exports a function matching the signature of express middleware.  Binds incoming request & response from express to a new domain.  Assigns the domain a unique id by calling `domainMiddleware.id(req)`.
 
 If the domain emits an error event, `domainMiddleware` will call `next(err)` with the error event from the domain.  This allows existing express specific error handling middleware to
 function as if the error was hanlded by your application code.  Allow me to demonstrate with an example:
@@ -69,7 +69,7 @@ app.use(function errorHandler(err, req, res, next) {
 app.get('/error', function(req, res, next) {
   db.query('SELECT happiness()', process.domain.intercept(function(rows) {
     fs.readFile('asldkfjasdf', process.domain.intercept(function(contents) {
-      process.nextTick(process.domain.inercept(function() {
+      process.nextTick(process.domain.intercept(function() {
         throw new Error("The individual request will be passed to the express error handler, and your application will keep running.");
       }));
     }));
