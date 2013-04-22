@@ -24,7 +24,7 @@ Third, use this middleware to bind each request/response pair to its own domain.
 express.use(require('express-domain-middleware'));
 ```
 
-### domain-middleware api
+### express-domain-middleware api
 
 #### var domainMiddleware = require('express-domain-middleware');
 
@@ -56,7 +56,7 @@ now with less crashing...
 
 ```js
 //with domain-middleware
-app.use(require('domain-middleware'));
+app.use(require('express-domain-middleware'));
 app.use(app.router);
 app.use(function errorHandler(err, req, res, next) {
   console.log('error on request %d %s %s: %j', process.domain.id, req.method, req.url, err);
@@ -82,7 +82,7 @@ I have to recommend using [okay](https://github.com/brianc/node-okay) to gracefu
 
 ```js
 var ok = require('okay');
-app.use(require('domain-middleware'));
+app.use(require('express-domain-middleware'));
 app.use(app.router);
 app.use(function errorHandler(err, req, res, next) {
   console.log('error on request %d %s %s: %j', process.domain.id, req.method, req.url, err);
