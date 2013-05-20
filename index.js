@@ -1,5 +1,7 @@
+var createDomain = require('domain').create
+
 var domainMiddleware = module.exports = function(req, res, next) {
-  var domain = require('domain').create();
+  var domain = createDomain();
   domain.id = domainMiddleware.id(req);
   domain.add(req);
   domain.add(res);
