@@ -1,6 +1,6 @@
 {
   "name": "express-domain-middleware",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "wrap express request/response with node domains",
   "main": "index.js",
   "directories": {
