@@ -23,6 +23,7 @@
   "devDependencies": {
     "omf": "~0.3.0",
     "okay": "~0.2.0",
-    "mocha": "~1.8.2"
+    "mocha": "~1.8.2",
+    "express": "~3.2.4"
   }
 }
