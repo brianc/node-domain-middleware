@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm install express && mocha"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
