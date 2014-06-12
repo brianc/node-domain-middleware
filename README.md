@@ -59,7 +59,8 @@ now with less crashing...
 app.use(require('express-domain-middleware'));
 app.use(app.router);
 app.use(function errorHandler(err, req, res, next) {
-  console.log('error on request %d %s %s: %j', process.domain.id, req.method, req.url, err);
+  console.log('error on request %d %s %s', process.domain.id, req.method, req.url);
+  console.log(err.stack);
   res.send(500, "Something bad happened. :(");
   if(err.domain) {
     //you should think about gracefully stopping & respawning your server
