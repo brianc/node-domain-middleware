@@ -5,12 +5,8 @@ var domainMiddleware = module.exports = function(req, res, next) {
   domain.id = domainMiddleware.id(req);
   domain.add(req);
   domain.add(res);
-  domain.run(function() {
-    next();
-  });
-  domain.on('error', function(e) {
-    next(e);
-  });
+  domain.run(next);
+  domain.on('error', next);
 };
 
 var count = 0;
